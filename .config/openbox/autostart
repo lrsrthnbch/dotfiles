@@ -1,0 +1,16 @@
+# required for xfce settings to work
+xfsettingsd &
+xfce4-power-manager
+
+# start the panel
+tint2 -c /home/lars/.config/tint2/MacLight.tint2rc &
+
+# start the terminal daemon and open a client
+urxvtd -f
+urxvtc
+
+# fix whitebalance
+redshift -P -O 5350
+
+# load wallpaper
+nitrogen --restore &
