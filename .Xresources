@@ -1,0 +1,71 @@
+! Base colors
+*.foreground:  #141414
+*.background:  #fafafa
+*.cursorColor: #141414
+
+*.color0:  #282a36
+*.color1:  #ff4971
+*.color2:  #18e3c8
+*.color3:  #ff8037
+*.color4:  #556fff
+*.color5:  #b043d1
+*.color6:  #3fdcee
+*.color7:  #bebec1
+*.color8:  #414458
+*.color9:  #ff4971
+*.color10: #18e3c8
+*.color11: #ff8037
+*.color12: #556fff
+*.color13: #b043d1
+*.color14: #3fdcee
+*.color15: #bebec1
+
+! Rofi
+rofi.font: monospace 13
+rofi.padding: 20
+rofi.line-padding: 2
+rofi.color-enabled: true
+rofi.hide-scrollbar: true
+rofi.separator-style: solid
+rofi.color-window: #e2e2e3, #141414, #e2e2e3
+rofi.color-normal: #e2e2e3, #141414, #e2e2e3, #141414, #e2e2e3
+rofi.color-urgent: argb:00000000, #f43753, argb:00000000, argb:00000000, #e29a49
+rofi.color-active: argb:00000000, #49bbfb, argb:00000000, argb:00000000, #e29a49
+rofi.kb-cancel: Escape,Alt+F1
+
+! xterm
+xterm*termName: xterm-256color
+xterm*font: monospace
+xterm*faceName: monospace:size=13
+xterm*loginShell: true
+xterm*vt100*geometry: 90x34
+xterm*saveLines: 2000
+xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*eightBitInput: false
+
+! URxvt
+URxvt*saveline: 15000
+URxvt*termName: rxvt-256color
+URxvt*iso14755: false
+URxvt*depth: 32
+URxvt*background: [100]#fafafa
+URxvt*scrollBar: false
+URxvt*scrollBar_right: false
+URxvt*internalBorder: 0
+URxvt*externalBorder: 0
+URxvt*letterSpace: -1
+URxvt.font: xft:monospace:size=13
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.pasteCommand: xclip -o -selection clipboard
+URxvt.keysym.m-c: perl:clipboard:copy
+URxvt.keysym.m-v: perl:clipboard:paste
+URxvt.urlLauncher: exo-open
+URxvt.underlineURLs: true
+URxvt.urlButton: 1
+URxvt.geometry: 90x34
+URxvt.tabbed.tabbar-fg: 4
+URxvt.tabbed.tabbar-bg: 16
+URxvt.tabbed.tab-fg: 15
+URxvt.tabbed.tab-bg: 4
+URxvt*buffered: false
