@@ -43,21 +43,9 @@ cryptsetup open /dev/sda2 cryptroot
 mkfs.ext4 /dev/mapper/cryptroot
 mount /dev/mapper/cryptroot /mnt
 ```
-You can then test if the mapping work as intended:
-```
-umount /mnt
-cryptsetup close cryptroot
-cryptsetup open /dev/sda2 cryptroot
-mount /dev/mapper/cryptroot /mnt
-```
-
-Prepare the boot partition:
+Prepare and mount the boot partition:
 ```
 mkfs.fat -F32 /dev/sda1
-```
-Mount the partitions:
-```
-mkdir /mnt/boot
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 ```
@@ -69,11 +57,11 @@ Create the fstab file:
 
 `genfstab -U /mnt >> /mnt/etc/fstab`
 
-## chroot into the installed system
+You can now chroot into the installed system.
 
 `arch-chroot /mnt`
 
-## Configure mkinitcpio
+## Configure the bootloader for encrypted partitions
 
 Install the bootloader:
 
@@ -104,12 +92,13 @@ Add the following lines. Use `:r !blkid` in VIM to find the correct UUID for dev
 title Arch Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options rw cryptdevice=UUID=xyz:cryptroot root=/dev/mapper/cryptroo
+options rw cryptdevice=UUID=xyz:cryptroot root=/dev/mapper/cryptroot
 ```
 Then ceate the ramdisk with:
 
 `mkinitcpio -p linux`
 
+## Further setup
 Create and mount a swapfile:
 ```
 fallocate -l 8GB /swapfile
@@ -148,9 +137,9 @@ Set the root password again:
 
 `passwd`
 
-Install the bootloader, network manager and some other useful tools:
+Install the network manager and some other useful tools:
 
-`pacman -S grub efibootmgr networkmanager network-manager-applet wireless_tools wpa_supplicant os-prober mtools dosfstools linux-headers`
+`pacman -S efibootmgr networkmanager network-manager-applet wireless_tools wpa_supplicant mtools dosfstools linux-headers`
 
 `exit`
 
@@ -159,9 +148,10 @@ umount -a
 reboot
 ```
 
-## reboot and set up
+## User creation and Desktop Environment installation
 
 Make sure that the network manager is active and starts on boot from now on. Use nmtui to connect to Wi-Fi.
+You can install openssh. Start it with systemctl start sshd.
 ```
 systemctl start NetworkManager
 nmtui
