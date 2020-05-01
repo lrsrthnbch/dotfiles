@@ -68,7 +68,8 @@ timeout 3
 default arch
 ```
 6. Create a new entry for Arch: `cd entries`, `vim arch.conf`
-7. Add the following lines. Use `:r !blkid` in VIM to find the correct UUID for dev/sda2 to replace "xyz" with
+7. Add the following lines. Use `:r !blkid` in VIM to find the correct UUID for dev/sda2 to replace "xyz" with. Here's what it should look like:
+![arch.conf](./screenshots/arch.conf.png)
 ```
 title Arch Linux
 linux /vmlinuz-linux
@@ -101,7 +102,7 @@ swapon /swapfile
 2. Open /etc/hosts and add the following lines:
 ```
 127.0.0.1	localhost
-::1			localhost
+::1		localhost
 127.0.1.1	T460s.localdomain	T460s
 ```
 
@@ -128,7 +129,7 @@ swapon /swapfile
 
 ## Step 14 - Desktop Environment
 This guide uses XFCE, since basically everything works out of the box on ThinkPads.
-1. Install XFCE and additional packages: `pacman -S xfce4 xfce4-goodies`
+1. Install XFCE and additional packages (Just press Enter): `pacman -S xfce4 xfce4-goodies`
 2. Install additional file manager functionality: `sudo pacman -S gvfs`
 3. Install an audio interface: `sudo pacman -S pavucontrol`
 4. Exit `exit` and login with your user
@@ -141,4 +142,4 @@ This guide uses XFCE, since basically everything works out of the box on ThinkPa
 5. Reboot once more `reboot`
 
 ## Step 16 - Done!
-Congrats, you now have a fully functional Arch Linux installation. There isn't a login manager installed, you can enter XFCE by `startx`.
+Congrats, you now have a fully functional Arch Linux installation. There isn't a login manager installed, you can enter XFCE by `startx`
